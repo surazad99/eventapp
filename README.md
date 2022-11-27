@@ -35,7 +35,11 @@ Installs passport migrations and necessary dependencies
 ### `php artisan db:seed`
 Seeds the necessary tables 
 
-### `Run the frontend react app form other repo`
+### `php artisan serve`
+Starts the laravel server at http://localhost:8000\
+Provide this url to react app's .env.local file
+
+### `Run the frontend react app form other repo iEventReact`
 Login using following credentials or you can sign up anytime\
 email:user@gmail.com\
 password:User@12345
