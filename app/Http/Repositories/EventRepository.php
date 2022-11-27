@@ -41,11 +41,12 @@ class EventRepository implements EventInterface
     }
 
     public function storeEvent(array $validatedEvent, User $user){
-        $user->events()->create($validatedEvent);
+        return $user->events()->create($validatedEvent);
     }
 
     public function updateEvent(array $validatedEvent, Event $event){
         $event->update($validatedEvent);
+        return $event->fresh();
     }
 
     public function deleteEvent(Event $event){

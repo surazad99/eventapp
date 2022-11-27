@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->enum('priority', ['high', 'medium', 'low']);
             $table->date('start_date');
             $table->date('end_date');
             $table->timestamps();

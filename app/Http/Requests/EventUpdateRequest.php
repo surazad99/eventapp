@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EventRequest extends FormRequest
+class EventUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,8 +26,8 @@ class EventRequest extends FormRequest
         return [
             'title' => 'required|string|max:255',
             'description' => 'required|string|max:255',
-            'start_date' => 'required|date|after:today',
-            'end_date' => 'required|date|after:'.$this->start_date,
+            'start_date' => 'required|date',
+            'end_date' => 'nullable|date|after:'.$this->start_date,
         ];
     }
 }

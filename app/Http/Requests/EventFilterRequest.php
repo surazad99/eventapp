@@ -24,7 +24,7 @@ class EventFilterRequest extends FormRequest
     public function rules()
     {
         return [
-            'filter_by' => 'nullable|in:finished,upcoming,finished7,upcoming7'
+            'filter_by' => 'nullable|in:all,finished,upcoming,finished7,upcoming7'
         ];
     }
 }

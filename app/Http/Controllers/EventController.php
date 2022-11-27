@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EventFilterRequest;
 use App\Http\Requests\EventRequest;
+use App\Http\Requests\EventUpdateRequest;
 use App\Http\Resources\EventResource;
 use App\Interfaces\EventInterface;
 use App\Interfaces\UserInterface;
@@ -49,8 +50,8 @@ class EventController extends Controller
         $validatedEvent = $eventRequest->validated();
         try{
             $user = $this->userRepository->findUserById(auth()->user()->id);
-            $this->eventRepository->storeEvent($validatedEvent, $user);
-            return sendSuccessResponse('Event Created Sucessfully');
+            $event = $this->eventRepository->storeEvent($validatedEvent, $user);
+            return sendSuccessResponse('Event Created Sucessfully', new EventResource($event));
 
         }catch(Exception $exception){
             return sendErrorResponse($exception->getMessage(), $exception->getCode());
@@ -81,14 +82,14 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(EventRequest $eventRequest, int $eventId)
+    public function update(EventUpdateRequest $eventUpdateRequest, int $eventId)
     {
-        $validatedEvent = $eventRequest->validated();
+        $validatedEvent = $eventUpdateRequest->validated();
         try{
             $event = $this->eventRepository->findEventById($eventId);
             $this->checkEventUser($event);
-            $this->eventRepository->updateEvent($validatedEvent, $event);
-            return sendSuccessResponse('Event Updated Sucessfully');
+            $event = $this->eventRepository->updateEvent($validatedEvent, $event);
+            return sendSuccessResponse('Event Updated Sucessfully', new EventResource($event));
 
         }catch(Exception $exception){
             return sendErrorResponse($exception->getMessage(), $exception->getCode());

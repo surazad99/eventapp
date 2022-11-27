@@ -20,7 +20,6 @@ class EventResource extends JsonResource
             'description' => $this->description,
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,
-            'priority' => $this->priority,
         ];
     }
 }
