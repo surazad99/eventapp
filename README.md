@@ -26,11 +26,11 @@ DB_PASSWORD=
 ### `php artisan key:generate`
 generates application key
 
-### `php artisan passport:install`
-Installs passport migrations and necessary dependencies
-
 ### `php artisan migrate`
 Runs the migration in your local database
+
+### `php artisan passport:install`
+Installs passport migrations and necessary dependencies
 
 ### `php artisan db:seed`
 Seeds the necessary tables 
