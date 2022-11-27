@@ -6,12 +6,16 @@ This project was created with PHP Laravel
 Clone the repository from master branch
 
 RUN
-### `Composer Install`
+
+## `cd eventapp`
+moves inside the project directory
+
+### `composer install`
 Installs necessary packages using composer
 
 ### `cp .env.example .env`
 Copies example env file into your env file\
-Create a database and add credentials to your database using\
+Create a database and add credentials to your database using your own credentials as shown in below example\
 DB_CONNECTION=mysql\
 DB_HOST=127.0.0.1\
 DB_PORT=3306\
